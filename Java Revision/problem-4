@@ -1,0 +1,15 @@
+// You are using Java
+import java.util.*;
+import java.sql.*;
+class Sample{
+    public static void main(String args[]) throws Exception{
+        Scanner sc = new Scanner (System.in);
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ri_db","test","test123");
+        String sql = "select LOWER(Department_Name) from department";
+        PreparedStatement p = con.prepareStatement(sql);
+        ResultSet rs = p.executeQuery();
+        while(rs.next()){
+            System.out.println(rs.getString(1));
+        }
+    }
+}
