@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+class InsufficientBalanceException extends Exception {
+    public InsufficientBalanceException(String message) {
+        super(message);
+    }
+}
+class BankingApplication {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double balance = scanner.nextDouble();
+
+        double withdrawalAmount = scanner.nextDouble();
+
+        try {
+            validateWithdrawal(balance, withdrawalAmount);
+            System.out.println("Transaction successful.");
+        } catch (InsufficientBalanceException e) {
+            System.out.println("Insufficient balance: " + e.getMessage());
+        }
+    }
+
+    private static void validateWithdrawal(double balance, double withdrawalAmount) throws InsufficientBalanceException {
+        if (withdrawalAmount > balance) {
+            throw new InsufficientBalanceException("Insufficient balance to perform the withdrawal.");
+        }
+    }
+}
