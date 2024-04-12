@@ -1,0 +1,63 @@
+// You are using Java
+import java.util.*;
+import java.sql.*;
+class Sample
+{
+    public static void main(String args[]) throws Exception
+    {
+        Scanner sc = new Scanner(System.in);
+        //Class.forName("com.mysql.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ri_db","test","test123");
+        int n = sc.nextInt();
+        PreparedStatement p;
+        ResultSet rs;
+        if(n == 1)
+        {
+            String sql = "insert into customer values(?,?,?,?,?)";
+            int id = sc.nextInt();
+            sc.nextLine();
+            String name = sc.nextLine();
+            String contact = sc.nextLine();
+            String subscription = sc.nextLine();
+            String payment = sc.nextLine();
+            p = con.prepareStatement(sql);
+            p.setInt(1,id);
+            p.setString(2,name);
+            p.setString(3,contact);
+            p.setString(4,subscription);
+            p.setString(5,payment);
+            p.executeUpdate();
+            System.out.println("Customer record inserted successfully.");
+        }
+        else if(n == 2)
+        {
+            String sql = "update customer set name = ?,contact_information = ?,subscription_plan = ?,payment_history = ? where customer_id = ?";
+            int id = sc.nextInt();
+            sc.nextLine();
+            String name = sc.nextLine();
+            String contact = sc.nextLine();
+            String subscription = sc.nextLine();
+            String payment = sc.nextLine();
+            p = con.prepareStatement(sql);
+            p.setString(1,name);
+            p.setString(2,contact);
+            p.setString(3,subscription);
+            p.setString(4,payment);
+            p.setInt(5,id);
+            p.executeUpdate();
+            System.out.println("Customer record updated successfully.");
+        }
+        else if(n>3)
+        {
+            System.out.println("Invalid operation number. Please try again.");
+            return;
+        }
+        String sql = "select * from customer";
+        p = con.prepareStatement(sql);
+        rs = p.executeQuery();
+        while(rs.next())
+        {
+            System.out.println("ID: "+rs.getInt("customer_id")+", Name: "+rs.getString("name")+", Contact Information: "+rs.getString("contact_information")+", Subscription Plan: "+rs.getString("subscription_plan")+", Payment History: "+rs.getString("payment_history"));
+        }
+    }
+}
