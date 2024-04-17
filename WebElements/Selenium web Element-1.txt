@@ -1,0 +1,60 @@
+package com.example;
+
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+/**
+ * Unit test for simple App.
+ */
+public class AppTest 
+{
+    /**
+     * Rigorous Test :-)
+     * @throws InterruptedException 
+     */
+    @Test
+    public void shouldAnswerWithTrue() throws InterruptedException
+    {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver =new ChromeDriver();
+        driver.get("https://www.moneycontrol.com/");
+        Thread.sleep(20000);
+        WebElement element=driver.findElement(By.xpath("/html/body/div[3]/header/div[1]/div[1]/div/div/div[2]/div/div/form/input[5]"));
+        element.click();
+        element.sendKeys("Reliance Industries");
+        Thread.sleep(5000);
+        element.sendKeys(Keys.ENTER);
+        driver.findElement(By.xpath("/html/body/div[8]/div[3]/div[2]/div/table/tbody/tr[4]/td[1]/p/a/strong")).click();
+        JavascriptExecutor j=(JavascriptExecutor) driver;
+        j.executeScript("window.scrollBy(0,300)");
+        // WebElement text=driver.findElement(By.xpath("/html/body/div[13]/div[2]/div[2]/div[2]/div[1]/div/h1"));
+        // String s=text.getText();
+        // if(s.equals("Reliance Industries Ltd."))
+        // {
+        //     System.out.println("true");
+        // }
+        // else{
+        //     System.out.println("false");
+        // }
+
+        Thread.sleep(5000);
+        driver.findElement(By.linkText("Mutual Funds")).click();
+        Thread.sleep(5000);
+        JavascriptExecutor js=(JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,1200)");
+        Thread.sleep(5000);
+        driver.findElement(By.linkText("SIP")).click();
+        Thread.sleep(5000);
+        driver.quit();
+    }
+}
