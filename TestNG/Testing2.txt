@@ -1,60 +1,95 @@
 package com.example;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+/**
+ * Unit test for simple App.
+ */
 public class TestNg2 {
+        /**
+         * Rigorous Test :-)
+         */
+        WebDriver driver;
+        WebDriverWait wait;
+
+        @BeforeMethod
+        public void setup() {
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                driver.get("https://www.moneycontrol.com/");
+                wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        }
+
         @Test
         public void shouldAnswerWithTrue() throws InterruptedException {
-                WebDriverManager.edgedriver().setup();
-                WebDriver driver = new EdgeDriver();
-                String path1 = "https://www.moneycontrol.com/";
-
-                // opening
-                driver.get(path1);
+                wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("/html/body"))));
                 Thread.sleep(10000);
-
-                // System.out.println("Search_Strt");
-                driver.findElement(By.id("search_str")).sendKeys("Reliance Industries.", Keys.ENTER);
-
-                // Inner of reliance Industries
-                driver.findElement(By.xpath(
-                                "//*[@id=\"mc_mainWrapper\"]/div[3]/div[2]/div/table/tbody/tr[4]/td[1]/p/a/strong"))
+                WebElement element = driver.findElement(By
+                                .xpath("/html/body/div[3]/header/div[1]/div[1]/div/div/div[2]/div/div/form/input[5]"));
+                element.click();
+                element.sendKeys("Reliance Industries");
+                Thread.sleep(5000);
+                element.sendKeys(Keys.ENTER);
+                driver.findElement(By.xpath("/html/body/div[8]/div[3]/div[2]/div/table/tbody/tr[4]/td[1]/p/a/strong"))
                                 .click();
-                Thread.sleep(2000);
+                JavascriptExecutor j = (JavascriptExecutor) driver;
+                j.executeScript("window.scrollBy(0,300)");
 
-                driver.navigate().to("https://www.moneycontrol.com/mf/sipcalculator.php");
-                Thread.sleep(2000);
+                Thread.sleep(5000);
+                WebElement mutualfunds = driver.findElement(By.linkText("Mutual Funds"));
+                Actions actions = new Actions(driver);
+                actions.moveToElement(mutualfunds).perform();
+                Thread.sleep(5000);
 
-                // dropdown box ---1
-                driver.findElement(By.xpath("//*[@id=\"ff_id\"]/option[3]")).click();
-                Thread.sleep(2000);
-                // dropdown box ---2
-                driver.findElement(By.xpath("//*[@id=\"im_id\"]/option[2]")).click();
-                Thread.sleep(2000);
+                WebElement sip = driver.findElement(By.linkText("SIP Return"));
+                sip.click();
+                Thread.sleep(5000);
 
-                driver.findElement(By.name("invamt")).sendKeys("100000");
-                Thread.sleep(2000);
+                Select dropdown = new Select(driver.findElement(By.xpath("//*[@id='ff_id']")));
+                dropdown.selectByVisibleText("Axis Mutual Fund");
+                Select drop = new Select(driver.findElement(By.xpath("//*[@id='im_id']")));
+                drop.selectByIndex(3);
 
-                // strt date
-                driver.findElement(By.id("stdt")).sendKeys("2021-08-02");
-                Thread.sleep(1000);
+                driver.findElement(By.xpath("//*[@id='invamt']")).sendKeys("100000");
 
-                // end date // clicking button
-                driver.findElement(By.id("endt")).sendKeys("2023-08-17", Keys.ENTER);
-                Thread.sleep(1000);
+                Select period = new Select(driver.findElement(By.xpath("//*[@id='frq']")));
+                period.selectByVisibleText("Monthly");
 
-                String dt = driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText();
-                String amt = driver.findElement(By.xpath("//table/tbody/tr[3]/td[2]")).getText();
+                driver.findElement(By.xpath("//*[@id='stdt']")).sendKeys("2021-08-02");
+                driver.findElement(By.xpath("//*[@id='endt']")).sendKeys("2023-08-17");
 
-                System.out.println(dt);
-                System.out.println(amt);
-                // driver.quit();
+                driver.findElement(
+                                By.xpath("//*[@id='mc_mainWrapper']/div[2]/div/div[3]/div[2]/div[2]/form/div[8]/input"))
+                                .click();
 
+                WebElement r1 = driver.findElement(By
+                                .xpath("//*[@id='mc_mainWrapper']/div[2]/div/div[3]/div[2]/div[6]/table/tbody/tr[1]"));
+                System.out.println(r1.getText());
+
+                WebElement r2 = driver.findElement(By
+                                .xpath("//*[@id='mc_mainWrapper']/div[2]/div/div[3]/div[2]/div[6]/table/tbody/tr[3]"));
+                System.out.println(r2.getText());
+        }
+
+        @AfterMethod
+        public void closemethod() {
+                driver.quit();
         }
 }
