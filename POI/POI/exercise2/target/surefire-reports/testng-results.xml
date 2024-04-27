@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-04-25T12:37:46 IST" name="Surefire suite" finished-at="2024-04-25T12:38:14 IST" duration-ms="28349">
+    <groups>
+    </groups>
+    <test started-at="2024-04-25T12:37:46 IST" name="Surefire test" finished-at="2024-04-25T12:38:14 IST" duration-ms="28349">
+      <class name="com.example.AppTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.example.AppTest@11a9e7c8]" started-at="2024-04-25T12:37:46 IST" name="setup" finished-at="2024-04-25T12:37:52 IST" duration-ms="5650" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="testCase1()[pri:1, instance:com.example.AppTest@11a9e7c8]" started-at="2024-04-25T12:37:52 IST" name="testCase1" finished-at="2024-04-25T12:38:06 IST" duration-ms="14221" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCase1 -->
+        <test-method is-config="true" signature="navigate()[pri:0, instance:com.example.AppTest@11a9e7c8]" started-at="2024-04-25T12:38:06 IST" name="navigate" finished-at="2024-04-25T12:38:08 IST" duration-ms="2545" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigate -->
+        <test-method signature="testCase2()[pri:2, instance:com.example.AppTest@11a9e7c8]" started-at="2024-04-25T12:38:08 IST" name="testCase2" finished-at="2024-04-25T12:38:14 IST" duration-ms="5455" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCase2 -->
+        <test-method is-config="true" signature="navigate()[pri:0, instance:com.example.AppTest@11a9e7c8]" started-at="2024-04-25T12:38:14 IST" name="navigate" finished-at="2024-04-25T12:38:14 IST" duration-ms="61" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigate -->
+        <test-method is-config="true" signature="driverQuit()[pri:0, instance:com.example.AppTest@11a9e7c8]" started-at="2024-04-25T12:38:14 IST" name="driverQuit" finished-at="2024-04-25T12:38:14 IST" duration-ms="338" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- driverQuit -->
+      </class> <!-- com.example.AppTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
