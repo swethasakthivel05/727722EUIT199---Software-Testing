@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-04-26T10:47:46 IST" name="Surefire suite" finished-at="2024-04-26T10:48:21 IST" duration-ms="34543">
+    <groups>
+    </groups>
+    <test started-at="2024-04-26T10:47:46 IST" name="Surefire test" finished-at="2024-04-26T10:48:21 IST" duration-ms="34543">
+      <class name="com.example.AppTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.example.AppTest@4c1d9d4b]" started-at="2024-04-26T10:47:46 IST" name="setup" finished-at="2024-04-26T10:47:53 IST" duration-ms="6369" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="testCase1()[pri:0, instance:com.example.AppTest@4c1d9d4b]" started-at="2024-04-26T10:47:53 IST" name="testCase1" finished-at="2024-04-26T10:48:15 IST" duration-ms="22562" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCase1 -->
+        <test-method signature="testCase2()[pri:1, instance:com.example.AppTest@4c1d9d4b]" started-at="2024-04-26T10:48:15 IST" name="testCase2" finished-at="2024-04-26T10:48:19 IST" duration-ms="3459" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCase2 -->
+        <test-method is-config="true" signature="quitDriver()[pri:0, instance:com.example.AppTest@4c1d9d4b]" started-at="2024-04-26T10:48:19 IST" name="quitDriver" finished-at="2024-04-26T10:48:21 IST" duration-ms="2104" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitDriver -->
+      </class> <!-- com.example.AppTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
