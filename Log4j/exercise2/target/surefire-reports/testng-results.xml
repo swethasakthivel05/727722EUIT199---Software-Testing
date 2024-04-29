@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-04-27T14:25:59 IST" name="Surefire suite" finished-at="2024-04-27T14:26:36 IST" duration-ms="37019">
+    <groups>
+    </groups>
+    <test started-at="2024-04-27T14:25:59 IST" name="Surefire test" finished-at="2024-04-27T14:26:36 IST" duration-ms="37019">
+      <class name="com.example.AppTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.example.AppTest@1ed1993a]" started-at="2024-04-27T14:25:59 IST" name="setup" finished-at="2024-04-27T14:26:05 IST" duration-ms="5860" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="testCase1()[pri:0, instance:com.example.AppTest@1ed1993a]" started-at="2024-04-27T14:26:05 IST" name="testCase1" finished-at="2024-04-27T14:26:35 IST" duration-ms="30516" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCase1 -->
+        <test-method is-config="true" signature="quit()[pri:0, instance:com.example.AppTest@1ed1993a]" started-at="2024-04-27T14:26:35 IST" name="quit" finished-at="2024-04-27T14:26:36 IST" duration-ms="569" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- com.example.AppTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
